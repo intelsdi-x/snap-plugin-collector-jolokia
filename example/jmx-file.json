@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "schedule": {
+        "type": "simple",
+        "interval": "1s"
+    },
+    "workflow": {
+        "collect": {
+            "metrics": {
+                "/intel/jolokia/java.lang/*": {}
+            },
+            "config": {
+                "/intel/jolokia": {
+                    "app_endpoint": "http://10.102.61.19:8080/jolokia/read"
+                }
+            },
+            "process": null,
+            "publish": [
+                {
+                    "plugin_name": "file-py",
+                    "config": {
+                        "file": "/tmp/jmx_snap_log.out"
+                    }
+                }
+            ]
+        }
+    }
+}

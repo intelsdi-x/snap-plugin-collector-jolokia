@@ -1,0 +1,13 @@
+{
+    "control": {
+        "plugins": {
+            "collector": {
+                "jolokia": {
+                    "all": {
+                        "jolokia_host_path": "http://10.102.61.19:8080/jolokia/read"
+                    }
+                }
+            }
+        }
+    }
+}
