@@ -18,6 +18,8 @@
 pkg:
 	$(MAKE) clean
 	bash -c "./scripts/pkg.sh snap_jolokia snap-plugin-collector-jolokia"
+test:
+	bash "./scripts/test.sh"
 clean:
 	rm -rf dist .venv *.egg-info build .acbuild
 	find . -name '*.pyc' -exec rm --force {} \;
