@@ -96,3 +96,7 @@ class Jolokia(snap.Collector):
 
 if __name__ == "__main__":
     Jolokia("jolokia", 1).start_plugin()
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
