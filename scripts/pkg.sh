@@ -62,8 +62,8 @@ fi
 # created by Travis CI, that we're in - each Python version in .travis.yml
 # is created by Travis CI as separate virtual env.
 # See: https://docs.travis-ci.com/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs
-pyenv install -s 3.6.2
-PYTHON_ENV=$(pyenv prefix 3.6.2)
+pyenv install -s 3.6.1
+PYTHON_ENV=$(pyenv prefix 3.6.1)
 _info "preparing virtual environment $PYTHON_ENV"
 _info "virtual environment: installing plugin requirements"
 $PYTHON_ENV/bin/pip install -r ${__proj_dir}/requirements.txt
