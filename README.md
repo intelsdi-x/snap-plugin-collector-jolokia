@@ -18,24 +18,16 @@ This approach has the following consequences:
 
 We still have a doubt what to do with response with non-base type.
 
-###For packaging you would need:
+### For packaging you would need:
 
 - [acbuild](https://github.com/containers/build)
 - [virtualenv](https://pypi.python.org/pypi/virtualenv)
 - [pyenv](https://github.com/yyuu/pyenv)
 - [pyenv virtualenv](https://github.com/yyuu/pyenv-virtualenv)
 
-###Creating packages:
+### Creating packages:
 
-1. Create virtualenv:
-  * ```pyenv virtualenv --copies 3.5.2 snap-plugins```
-2. Activate virtualenv:
-  * ```pyenv shell snap-plugins```
-3. Install snap py library dependency:
-  * ```pip install git+https://github.com/intelsdi-x/snap-plugin-lib-py```
-4. Building package (in repository root):
-  * ```./build.sh```
-
+To create a package simply run `$ make pkg` in root directory.
 
 In configuration doubts, please take a look into examples.
 

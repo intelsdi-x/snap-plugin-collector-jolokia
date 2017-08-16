@@ -1,0 +1,35 @@
+language: python
+python:
+  - "3.6"
+script:
+  - make test
+before_deploy:
+  - make pkg
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: snap.ci.snap-telemetry.io
+    region: us-west-2
+    skip_cleanup: true
+    local-dir: dist
+    upload-dir: plugins
+    acl: public_read
+    on:
+      repo: intelsdi-x/snap-plugin-collector-jolokia
+      tags: true
+  - provider: pypi
+    distributions: sdist bdist_wheel
+    user: $PYPI_USER
+    password: $PYPI_PASSWORD
+    on:
+      tags: true
+      repo: intelsdi-x/snap-plugin-collector-jolokia
+  - provider: releases
+    api_key: $GITHUB_API_KEY
+    file:
+      - dist/snap-plugin-collector-jolokia/linux/x86_64/snap-plugin-collector-jolokia-linux-x86_64.aci
+    skip_cleanup: true
+    on:
+      repo: intelsdi-x/snap-plugin-collector-jolokia
+      tags: true

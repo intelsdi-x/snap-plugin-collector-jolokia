@@ -1,0 +1,2 @@
+include versioneer.py
+include snap_jolokia/_version.py
